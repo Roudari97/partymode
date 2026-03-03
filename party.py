@@ -5,6 +5,18 @@ import random
 import sys
 import os
 
+def load_env(filename=".env"):
+    if not os.path.exists(filename):
+        return
+    with open(filename) as f:
+        for line in f:
+            if line.strip() == "" or line.startswith("#"):
+                continue
+            key, value = line.strip().split("=", 1)
+            os.environ[key] = value
+
+load_env()
+
 # =============================
 # Load .env if exists
 BRIDGE_IP = os.getenv("IP", "")
