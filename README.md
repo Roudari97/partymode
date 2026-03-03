@@ -32,6 +32,14 @@ API=your_hue_api_key_here
 
 > 💡 **Tip**: You can get your API key by pressing the button on your Hue Bridge and following Hue API instructions.
 
+**PowerShell API Key Generation**:
+```powershell
+Invoke-RestMethod -Method Post `
+  -Uri "http://YOUR_HUE_BRIDGE_IP/api" `
+  -Body '{"devicetype":"partymode#pc"}' `
+  -ContentType "application/json"
+```
+
 ## 🎮 Usage
 
 - **Run the script**: `python party.py`
